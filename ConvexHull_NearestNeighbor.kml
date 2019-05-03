@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.0">
+<Document>
+<Style id="z1">
+<IconStyle><Icon><href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href></Icon></IconStyle>
+</Style>
+<Style id="nearest">
+<LineStyle>
+<color>7f0000ff</color>
+<width>8</width>
+</LineStyle>
+</Style>
+<Placemark><name>Ellendale Pl</name>
+<styleUrl>#z1</styleUrl><Point><coordinates>-118.288866,34.031748</coordinates></Point>
+</Placemark>
+<Placemark><name>Orchard Ave</name>
+<styleUrl>#z1</styleUrl><Point><coordinates>-118.288262,34.028371</coordinates></Point>
+</Placemark>
+<Placemark><name>Vermont Ave</name>
+<styleUrl>#z1</styleUrl><Point><coordinates>-118.291541,34.025607</coordinates></Point>
+</Placemark>
+<Placemark><name>Figueroa St</name>
+<styleUrl>#z1</styleUrl><Point><coordinates>-118.280103,34.021895</coordinates></Point>
+</Placemark>
+<Placemark><name>Mcclintok</name>
+<styleUrl>#z1</styleUrl><Point><coordinates>-118.287602,34.024325</coordinates></Point>
+</Placemark>
+<Placemark><name>SGM</name>
+<styleUrl>#z1</styleUrl><Point><coordinates>-118.289053,34.021449</coordinates></Point>
+</Placemark>
+<Placemark><name>USC BookStore</name>
+<styleUrl>#z1</styleUrl><Point><coordinates>-118.286601,34.020773</coordinates></Point>
+</Placemark>
+<Placemark><name>Tommy Trojan</name>
+<styleUrl>#z1</styleUrl><Point><coordinates>-118.285451,34.020555</coordinates></Point>
+</Placemark>
+<Placemark><name>Leavey Library</name>
+<styleUrl>#z1</styleUrl><Point><coordinates>-118.282912,34.021787</coordinates></Point>
+</Placemark>
+<Placemark><name>Exposition</name>
+<styleUrl>#z1</styleUrl><Point><coordinates>-118.282274,34.018429</coordinates></Point>
+</Placemark>
+<Placemark><name>Ralph's</name>
+<styleUrl>#z1</styleUrl><Point><coordinates>-118.291335,34.032799</coordinates></Point>
+</Placemark>
+<Placemark><name>West Adams Blvd</name>
+<styleUrl>#z1</styleUrl><Point><coordinates>-118.286460,34.032707</coordinates></Point>
+</Placemark>
+<Placemark>
+<Polygon>
+<outerBoundaryIs>
+<LinearRing>
+<coordinates>
+-118.282274,34.018429
+-118.289053,34.021449
+-118.291541,34.025607
+-118.291335,34.032799
+-118.28646,34.032707
+-118.280103,34.021895
+-118.282274,34.018429
+</coordinates>
+</LinearRing>
+</outerBoundaryIs>
+</Polygon>
+<Style>
+<LineStyle>
+<color>7fff0000</color>
+<width>8</width>
+</LineStyle>
+<PolyStyle>
+<color>7FAAAAAA</color>
+<fill>1</fill>
+<outline>1</outline>
+</PolyStyle>
+</Style>
+</Placemark>
+<Placemark>
+<styleUrl>#nearest</styleUrl>
+<LineString>
+<coordinates>
+-118.291335,34.032799, -118.288866,34.031748
+-118.288262,34.028371, -118.288866,34.031748
+-118.28646,34.032707, -118.288866,34.031748
+-118.291541,34.025607, -118.288866,34.031748
+</coordinates>
+</LineString>
+</Placemark>
+</Document></kml>
+

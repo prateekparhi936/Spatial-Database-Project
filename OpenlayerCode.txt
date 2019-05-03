@@ -1,0 +1,45 @@
+let data = [
+{"long":-118.288866,"lat":34.031748,"name":"Ellendale"},
+{"long":-118.288262,"lat":34.028371,"name": "Orchard Ave"},
+{"long":-118.291541,"lat":34.025607,"name":"Vermont Ave"},
+{"long":-118.280103,"lat":34.021895,"name": "Figueroa St"},
+{"long":-118.287602,"lat":34.024325,"name":	"Mcclintok"},
+{"long":-118.289053,"lat":34.021449,"name":	"SGM"},
+{"long":-118.286601,"lat":34.020773,"name":	"USC BookStore"},
+{"long":-118.285451,"lat":34.020555,"name":	"Tommy Trojan"},
+{"long":-118.282912,"lat":34.021787,"name":	"Leavey Library"},
+{"long":-118.282274,"lat":34.018429,"name":	"Exposition"},
+{"long":-118.291335,"lat":34.032799,"name":	"Ralph's"},
+{"long":-118.286460,"lat":34.032707,"name":"West Adams Blvd"}
+];
+
+localStorage.setItem("USCdata",JSON.stringify(data));
+let dataStored = JSON.parse(localStorage.getItem("USCdata"));
+console.log(dataStored); 
+
+function initMap() {
+        map = new OpenLayers.Map('map');
+        basemap = new OpenLayers.Layer.OSM("Simple OSM Map");
+        map.addLayer(basemap);
+        markers = new OpenLayers.Layer.Markers("Markers");
+        map.addLayer(markers);
+}
+
+function addMarker(latitude, longitude,name) {
+        let lonLat = new OpenLayers.LonLat(longitude, latitude)
+            .transform(
+                new OpenLayers.Projection("EPSG:4326"), 
+                map.getProjectionObject() 
+        );
+        let point = new OpenLayers.Marker(lonLat);
+        markers.addMarker(point);
+        map.setCenter(lonLat, 8);
+}
+
+initMap();
+let a = dataStored; 
+for(var indx in a) {
+  console.log(a[indx]);
+  addMarker(a[indx].lat,a[indx].long,a[indx].name);
+}
+

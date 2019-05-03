@@ -1,0 +1,68 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf100
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww33400\viewh18480\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 -118.288866,34.031748   Ellendale\
+-118.288262,34.028371   Orchard Ave\
+-118.291541,34.025607	Vermont Ave\
+-118.280103,34.021895   Figueroa St\
+-118.287602,34.024325	Mcclintok\
+-118.289053,34.021449	SGM\
+-118.286601,34.020773	USC BookStore\
+-118.285451,34.020555	Tommy Trojan\
+-118.283537,34.023030	Trousdale Parkway\
+-118.282912,34.021787	Leavey Library\
+-118.282274,34.018429	Exposition \
+-118.291359,34.028425	Lion's Bike Shop\
+-118.291335,34.032799	Ralph's\
+\
+\
+let data = [\
+\{"long":-118.288866,"lat":34.031748,"name":"Ellendale"\},\
+\{"long":-118.288262,"lat":34.028371,"name": "Orchard Ave"\},\
+\{"long":-118.291541,"lat":34.025607,"name":"Vermont Ave"\},\
+\{"long":-118.280103,"lat":34.021895,"name": "Figueroa St"\},\
+\{"long":-118.287602,"lat":34.024325,"name":	"Mcclintok"\},\
+\{"long":-118.289053,"lat":34.021449,"name":	"SGM"\},\
+\{"long":-118.286601,"lat":34.020773,"name":	"USC BookStore"\},\
+\{"long":-118.285451,"lat":34.020555,"name":	"Tommy Trojan"\},\
+\{"long":-118.282912,"lat":34.021787,"name":	"Leavey Library"\},\
+\{"long":-118.282274,"lat":34.018429,"name":	"Exposition"\},\
+\{"long":-118.291335,"lat":34.032799,"name":	"Ralph's"\},\
+\{"long":-118.286460,"lat":34.032707,"name":"West Adams Blvd"\}\
+];\
+ \
+localStorage.setItem("USCdata",JSON.stringify(data));\
+let dataStored = JSON.parse(localStorage.getItem("USCdata"));\
+console.log(dataStored); \
+\
+function initMap() \{\
+        map = new OpenLayers.Map('map');\
+        basemap = new OpenLayers.Layer.OSM("Simple OSM Map");\
+        map.addLayer(basemap);\
+        markers = new OpenLayers.Layer.Markers("Markers");\
+        map.addLayer(markers);\
+\}\
+\
+function addMarker(latitude, longitude) \{\
+        let lonLat = new OpenLayers.LonLat(longitude, latitude)\
+            .transform(\
+                new OpenLayers.Projection("EPSG:4326"), \
+                map.getProjectionObject() \
+        );\
+        let point = new OpenLayers.Marker(lonLat);\
+        markers.addMarker(point);\
+        map.setCenter(lonLat, 8);\
+\}\
+\
+initMap();\
+let a = dataStored; \
+for(var indx in a) \{\
+  console.log(a[indx]);\
+  addMarker(a[indx].lat,a[indx].long,a[indx].name);\
+\}\
+\
+}
